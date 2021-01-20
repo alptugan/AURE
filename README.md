@@ -1,6 +1,7 @@
 # AURE
 AURE is currently available only for Mac OS X systems.
-The relevant addons and source files will be added soon in order to compile project successfully.
+The relevant addons and source files will be added soon in order to compile project successfully. 
+OS X users can download prerelease version from the below link for testing purposes. 
 
 Screen shot from AURE
 ![AURE](AURE_ss.jpg)
