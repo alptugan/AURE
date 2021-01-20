@@ -6,7 +6,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    ofSetDataPathRoot("../Resources/data/");
+    //ofSetDataPathRoot("../Resources/data/");
     
     
     showGUI = false;
