@@ -1,8 +1,0 @@
-{
-    "settings-aure_json": {
-        "COM_Port": "9333",
-        "Enable_fullscreen": "0",
-        "Hide_gui": "0",
-        "Server_Address": "localhost"
-    }
-}
