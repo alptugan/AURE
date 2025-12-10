@@ -1,0 +1,7 @@
+ofxContentsManager
+ofxDaseinCosmos
+ofxEasing
+ofxGui
+ofxOsc
+ofxPostProcessing
+ofxTweenzor

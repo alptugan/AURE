@@ -1,0 +1,54 @@
+{
+    "C2_SUPERSHAPE": {
+        "Iteration_Period": "4",
+        "Mesh_Parameters": {
+            "Animate_Color": "0",
+            "Animate_Rotation": "1",
+            "Color_Animation_Speed": "3",
+            "Color_Variation_Val": "79",
+            "Enable_Shape_Shift": "0",
+            "Mesh_Radius": "310.514",
+            "Mesh_Resolution": "171",
+            "Mirror_Parameters": "0",
+            "Selected_Mesh_Mode_TRIANGLES": {
+                "LINES": "0",
+                "LINE_LOOP": "0",
+                "LINE_STRIP": "0",
+                "POINTS": "0",
+                "TRIANGLES": "1",
+                "TRIANGLE_FAN": "0",
+                "TRIANGLE_STRIP": "0"
+            },
+            "Set_Fill_Mode": "1",
+            "Set_Solid_Fill_Color": "255, 255, 255, 255",
+            "Show_Faces": "1",
+            "Show_Wireframe": "1",
+            "Stroke_Color": "0, 0, 0, 100"
+        },
+        "Set_Animation_Duration": "4",
+        "Set_Iteration_Type_Random": "1",
+        "Set_Lights_and_Environment_Porperties": {
+            "Enable_Disable_Light": "1",
+            "Invert_Background": "0",
+            "Light_Position_A": "589.041, 335.616, 1000",
+            "Show_Light_A": "1"
+        },
+        "Super_Formula_Parameters_1": {
+            "a_I_value": "1",
+            "b_I_value": "0.708082",
+            "m1_value": "0",
+            "n_I-III_value": "16.2757",
+            "n_I-II_value": "16.6216",
+            "n_I-I_value": "20"
+        },
+        "Super_Formula_Parameters_2": {
+            "a_II_value": "0.90154",
+            "b_II_value": "0.63702",
+            "m2_value": "6.08108",
+            "n_II-III_value": "0.439192",
+            "n_II-II_value": "10.9221",
+            "n_II-I_value": "11.5234"
+        }
+    },
+    "group": null
+}

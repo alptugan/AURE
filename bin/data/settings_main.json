@@ -1,0 +1,17 @@
+{
+    "MAIN_PARAMETERS": {
+        "AUTO_PILOT": "0",
+        "AUTO_PILOT_SCENE_MIX": "0",
+        "ENABLE_MOUSE_AUTOHIDE": "0",
+        "FADE_IN": "8",
+        "FADE_OUT": "8",
+        "FX_AUTO_PILOT": "0",
+        "HIDE_GUI": "0",
+        "MINIMIZE_ALL": "0",
+        "SAVE_IMAGE": "0",
+        "SET_FULLSCREEN": "0",
+        "SHORTCUTS": "0",
+        "SHOW_ONLY_FPS": "0",
+        "Show_HELP": "0"
+    }
+}

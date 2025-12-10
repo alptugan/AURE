@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Super_Formula_Generator>
+	<Super_Formula_Parameters_1>
+		<m1-1_value>7.74</m1-1_value>
+		<m1-2_value>0.1</m1-2_value>
+		<n_I-I_value>14</n_I-I_value>
+		<n_I-II_value>14.5085</n_I-II_value>
+		<n_I-III_value>16.6</n_I-III_value>
+		<a_I_value>0.94</a_I_value>
+		<b_I_value>0.7</b_I_value>
+	</Super_Formula_Parameters_1>
+	<Super_Formula_Parameters_2>
+		<m2-1_value>12.9</m2-1_value>
+		<m2-2_value>7.85</m2-2_value>
+		<n_II-I_value>13.6</n_II-I_value>
+		<n_II-II_value>18.4354</n_II-II_value>
+		<n_II-III_value>14.2857</n_II-III_value>
+		<a_II_value>0.506803</a_II_value>
+		<b_II_value>0.741497</b_II_value>
+	</Super_Formula_Parameters_2>
+	<Mesh_Parameters>
+		<Mesh_Radius>238.857</Mesh_Radius>
+		<Mesh_Resolution>111</Mesh_Resolution>
+		<Stroke_Color>255, 255, 255, 143</Stroke_Color>
+		<Show_Wireframe>1</Show_Wireframe>
+		<Show_Faces>1</Show_Faces>
+		<Set_Fill_Mode>1</Set_Fill_Mode>
+		<Set_Solid_Fill_Color>0, 0, 0, 255</Set_Solid_Fill_Color>
+		<Selected_Mesh_Mode_TRIANGLES>
+			<TRIANGLES>1</TRIANGLES>
+			<TRIANGLE_FAN>0</TRIANGLE_FAN>
+			<TRIANGLE_STRIP>0</TRIANGLE_STRIP>
+			<LINES>0</LINES>
+			<LINE_STRIP>0</LINE_STRIP>
+			<LINE_LOOP>0</LINE_LOOP>
+			<POINTS>0</POINTS>
+		</Selected_Mesh_Mode_TRIANGLES>
+		<Animate>0</Animate>
+		<Animate_Parameters>0</Animate_Parameters>
+	</Mesh_Parameters>
+</Super_Formula_Generator>
