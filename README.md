@@ -6,7 +6,7 @@ AURE is currently available only for Mac OS X systems.
 
 ![](docs/Figure5-1.png)
 
-![AURE](docs/AURE-01.jpg)
+![AURE](docs/AURE-cover.jpg)
 
 # Instructions
 1. Compile the app using openframeworks or download [here](https://github.com/alptugan/AURE/releases/tag/v1.0-beta) for Mac.
