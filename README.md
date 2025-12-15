@@ -1,12 +1,13 @@
 # AURE Beta (WIP)
-A domain-agnostic, audio-reactive application framework designed for musical live-coding environments.
-
-AURE is currently available only for Mac OS X systems.
+A domain-agnostic, audio-reactive application framework designed for musical live-coding environments. AURE is currently available only for Mac OS X systems.
 
 
 ![](docs/Figure5-1.png)
 
 ![AURE](docs/AURE-cover.jpg)
+
+# Add New Scenes
+Developers interested in extending the application with additional scenes should consult the [developer documentation](docs/DEVELOPER_GUIDE.md).
 
 # Instructions
 1. Compile the app using openframeworks or download [here](https://github.com/alptugan/AURE/releases/tag/v1.0-beta) for Mac.
