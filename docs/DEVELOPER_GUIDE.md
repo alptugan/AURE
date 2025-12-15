@@ -1,6 +1,6 @@
 # AURE Developer Guide (Technical)
 
-Users with prior knowledge of OpenFrameworks may bypass the introductory material and proceed directly to the `Scene Blueprint` section.
+Users with prior knowledge of OpenFrameworks may bypass the introductory material and proceed directly to the [Scene Blueprint](docs/DEVELOPER_GUIDE.md#scene-blueprint) section.
 
 
 This document is for contributors who want to extend AURE (openFrameworks) with new generative “scenes” and wire them to OSC.
