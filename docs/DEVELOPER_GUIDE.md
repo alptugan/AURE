@@ -1,9 +1,6 @@
 # AURE Developer Guide (Technical)
 
-Users with prior knowledge of OpenFrameworks may bypass the introductory material and proceed directly to the [Scene Blueprint](DEVELOPER_GUIDE.md#scene-blueprint) section.
-
-
-This document is for contributors who want to extend AURE (openFrameworks) with new generative “scenes” and wire them to OSC.
+Users with prior knowledge of OpenFrameworks may bypass the introductory material and proceed directly to the [Scene Blueprint](DEVELOPER_GUIDE.md#scene-blueprint) section. This document is for contributors who want to extend AURE (openFrameworks) with new generative “scenes” and wire them to OSC.
 
 
 ## Creating a new scene (step-by-step)
@@ -28,6 +25,8 @@ Below is a compact template that follows the structure used by default scenes in
 Tip: Keep OSC methods small and “trigger-like” (set a flag, set a timer, randomize a parameter). This matches how `c1_Template` uses `initTime*` and booleans to create short-lived transitions.
 
 ### Scene blueprint
+Use the following scene template to add your custom generative graphics.
+
 ```cpp 
 #pragma once
 

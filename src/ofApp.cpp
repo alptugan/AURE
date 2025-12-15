@@ -35,7 +35,6 @@ void ofApp::setup(){
 	
 	
 	//ofEnableSmoothing();
-	settingsAudioFile = "settings-rawav-audio.xml";
 	
 	ofSetFrameRate(60.0);
 	resolution = 1;
@@ -54,6 +53,7 @@ void ofApp::setup(){
 	//////////////////////////////////////////////////////////////////
 	c1                         = new c1_Template();
 	c2                         = new c2_SuperShape();
+	c3						   = new c3_Circles();
 	
 	//////////////////////////////////////////////////////////////////
 	// INIT CONTENT MANAGER & ADD SCENE CLASSES
@@ -61,6 +61,7 @@ void ofApp::setup(){
 	mContentsManager.setup( w, h, internalFormat,4);
 	mContentsManager.addContent(c1);
 	mContentsManager.addContent(c2);
+	mContentsManager.addContent(c3);
 	
 	mContentsManager.setDebug(ofxGetDebugMode());
 	
@@ -141,9 +142,6 @@ void ofApp::update(){
 	// Parse OSC
 	receiverParser();
 	
-	// Process FFT
-	// processFFT();
-	
 	fxManager.updateValues();
 	
 	// Update Content Manager
@@ -216,11 +214,11 @@ void ofApp::draw(){
 	// Draw GUI
 	if( ofxGetDebugMode() ) {
 		/*int ww = OFX_FFT_WIDTH + 4;
-		int hh = OFX_FFT_HEIGHT + 1;
-		int x = ofGetWidth() - ww - 4;
-		int y = ofGetHeight() - hh - 1;
-		fftLive.draw(x, y, ww, hh);
-		guiAudio.draw();*/
+		 int hh = OFX_FFT_HEIGHT + 1;
+		 int x = ofGetWidth() - ww - 4;
+		 int y = ofGetHeight() - hh - 1;
+		 fftLive.draw(x, y, ww, hh);
+		 guiAudio.draw();*/
 		
 		activeScene.setup("SCENE", ofToString(mContentsManager.getContent(mContentsManager.getCurrentContent())->getName()));
 		
@@ -372,45 +370,55 @@ void ofApp::receiverParser() {
 		string msgString;
 		msgString = "Incoming Message -> ";
 		msgString += m.getAddress();
+		string addr = m.getAddress();
 		
-		
-		if(m.getAddress() == "/par1") {
+		if(addr == "/par1") {
 			if(mContentsManager.getCurrentContent() == 1) {
 				c2->iterationBtnHandler();
 			}else if(mContentsManager.getCurrentContent() == 0) {
 				c1->setSize();
+			}else if(mContentsManager.getCurrentContent() == 2) {
+				c3->onPar1();
 			}
 			
 			msgColors[currentMsgString] = ofColor::green;
-		}else if(m.getAddress() == "/par2") {
+		}else if(addr == "/par2") {
 			if(mContentsManager.getCurrentContent() == 1) {
 				c2->setm1();
 			}else if(mContentsManager.getCurrentContent() == 0) {
 				c1->setParameter2(true);
+			}else if(mContentsManager.getCurrentContent() == 2) {
+				c3->onPar2();
 			}
 			msgColors[currentMsgString] = ofColor::green;
-		}else if(m.getAddress() == "/par3") {
+		}else if(addr == "/par3") {
 			if(mContentsManager.getCurrentContent() == 1) {
 				c2->setm2();
 			}else if(mContentsManager.getCurrentContent() == 0) {
 				c1->setParameter3(true);
+			}else if(mContentsManager.getCurrentContent() == 2) {
+				c3->onPar3();
 			}
 			msgColors[currentMsgString] = ofColor::green;
-		}else if(m.getAddress() == "/par4") {
+		}else if(addr == "/par4") {
 			if(mContentsManager.getCurrentContent() == 1) {
 				c2->setRandomColor();
 			}else if(mContentsManager.getCurrentContent() == 0) {
 				c1->setParameter4();
+			}else if(mContentsManager.getCurrentContent() == 2) {
+				c3->onPar4();
 			}
 			msgColors[currentMsgString] = ofColor::green;
-		}else if(m.getAddress() == "/par5") {
+		}else if(addr == "/par5") {
 			if(mContentsManager.getCurrentContent() == 1) {
 				c2->setRandomRadius();
 			}else if(mContentsManager.getCurrentContent() == 0) {
 				c1->setParameter5();
+			}else if(mContentsManager.getCurrentContent() == 2) {
+				c3->onPar5();
 			}
 			msgColors[currentMsgString] = ofColor::green;
-		}else if(m.getAddress() == "/onset_off") {
+		}else if(addr == "/reset") {
 			if(mContentsManager.getCurrentContent() == 1) {
 				c2->setRadius(350);
 			}else if(mContentsManager.getCurrentContent() == 0) {
@@ -418,38 +426,37 @@ void ofApp::receiverParser() {
 			}
 			msgColors[currentMsgString] = ofColor::green;
 		}
-		else if(m.getAddress() == "/fx_on") {
+		else if(addr == "/fx_on") {
 			int randId = int(ofRandom(fxManager.getEffectNum()));
-			
-			//if(randId != 20 && randId != 18 && randId != 5)
-				fxManager.switchFX(randId);
+			fxManager.switchFX(randId);
 			
 			msgColors[currentMsgString] = ofColor::green;
 			
-		}else if(m.getAddress() == "/fx_off") {
+		}else if(addr == "/fx_off") {
 			fxManager.disableAll();
 			msgColors[currentMsgString] = ofColor::green;
-		}else if(m.getAddress() == "/w_full_on") {
+		}else if(addr == "/w_full_on") {
 			if(!enableFullScreen) {
 				enableFullScreen = true;
 				ofSetFullscreen(enableFullScreen);
 			}
 			msgColors[currentMsgString] = ofColor::green;
-		}else if(m.getAddress() == "/w_full_off") {
+		}else if(addr == "/w_full_off") {
 			if(enableFullScreen) {
 				enableFullScreen = false;
 				ofSetFullscreen(enableFullScreen);
 			}
 			msgColors[currentMsgString] = ofColor::green;
-		}else if(m.getAddress() == "/scene1") {
-			if(mContentsManager.getCurrentContent() != 0)
-				mContentsManager.switchContent(0);
-			msgColors[currentMsgString] = ofColor::green;
-		}else if(m.getAddress() == "/scene2") {
-			if(mContentsManager.getCurrentContent() != 1)
-				mContentsManager.switchContent(1);
-			
-			msgColors[currentMsgString] = ofColor::green;
+		}// replace the repeated if/else chain in `ofApp.cpp` with this
+		if (addr.rfind("/scene", 0) == 0) {
+			string numStr = addr.substr(6); // "/scene" length == 6
+			if (!numStr.empty() && std::all_of(numStr.begin(), numStr.end(), ::isdigit)) {
+				int idx = std::stoi(numStr) - 1; // convert "1"->0, "2"->1, ...
+				if (idx >= 0 && idx != mContentsManager.getCurrentContent()) {
+					mContentsManager.switchContent(idx);
+				}
+				msgColors[currentMsgString] = ofColor::green;
+			}
 		}
 		else{
 			msgColors[currentMsgString] = ofColor::red;
@@ -566,36 +573,3 @@ void ofApp::saveSettingsHandler() {
 void ofApp::enableFullScreenHandler(bool & val) {
 	ofSetFullscreen(val);
 }
-
-
-/*
-
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-	
-}
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-	if(key=='f') {
-		ofToggleFullscreen();
-	}
-	
-	else if(key=='g') {
-		//showGUI = !showGUI;
-	}
-	
-	else if(key == ' ') {
-		superShaper.iterationBtnHandler();
-	}
-	
-	else if(key == 'x') {
-		//invertBg = !invertBg;
-	}
-	
-	else if(key == '<') {
-		//superShaper.showGui = !superShaper.showGui;
-	}
-}
-
-*/

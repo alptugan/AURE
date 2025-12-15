@@ -1,9 +1,10 @@
 # AURE Beta (WIP)
 A domain-agnostic, audio-reactive application framework designed for musical live-coding environments. AURE is currently available only for Mac OS X systems.
 
-
+**Setup Diagram with Sonic Pi**
 ![](docs/Figure5-1.png)
 
+**Actual setup with Sonic Pi**
 ![AURE](docs/AURE-cover.jpg)
 
 # Add New Scenes
@@ -35,3 +36,11 @@ You can use the following OSC messages to adjust parameters of the generative vi
 | /scene1     | Switch to Scene 1                                 |
 | /scene2     | Switch to Scene 2                                 |
 
+# Depndencies
+- [ofxContentsManager](https://github.com/alptugan/ofxContentsManager)
+- [ofxDaseinCosmos](https://github.com/alptugan/ofxDaseinCosmos)
+- [ofxEasing](https://github.com/funatsufumiya/ofxEasing)
+- [ofxPostProcessing](https://github.com/alptugan/ofxPostProcessing)
+- [ofxTweenzor](https://github.com/NickHardeman/ofxTweenzor)
+- ofxGui (built-in version)
+- ofxOsc (built-in version)

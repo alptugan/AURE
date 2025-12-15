@@ -11,6 +11,7 @@
 
 #include "c1_Template.h"
 #include "c2_SuperShape.h"
+#include "c3_Circles.h"
 
 //#include "ofxDC_Supershape.h"
 #include "ofxOsc.h"
@@ -116,6 +117,7 @@ class ofApp : public ofxDC_App{
     // CONTENTS
     c1_Template *c1;
     c2_SuperShape *c2;
+	c3_Circles *c3;
     
     string fileName;
     float scale, resolution;

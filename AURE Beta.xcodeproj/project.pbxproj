@@ -241,6 +241,7 @@
 		"EE9931EF-C231-45A8-B924-64D6AF584846" /* ofxInputField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ofxInputField.h; sourceTree = "<group>"; };
 		"EFA22488-5B4F-4FF1-94FC-E95DD50A64FB" /* RGBShiftPass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RGBShiftPass.cpp; sourceTree = "<group>"; };
 		"F1454B3C-D447-46BF-94D8-E75BADA97A52" /* ofxPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ofxPanel.h; sourceTree = "<group>"; };
+		F1BFE47D2EF0A45000311FE7 /* c3_Circles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = c3_Circles.h; sourceTree = "<group>"; };
 		"F2AB117F-8141-4DE9-AFD0-CE068F6CC91F" /* TweenSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TweenSelector.h; sourceTree = "<group>"; };
 		"F5415EBD-2C3B-4DB7-9978-F4708BDF617B" /* OscReceivedElements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OscReceivedElements.h; sourceTree = "<group>"; };
 		"F7A6B488-711D-473A-83EA-E48C7909CD72" /* ofxButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxButton.cpp; sourceTree = "<group>"; };
@@ -573,6 +574,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				F1BFE47D2EF0A45000311FE7 /* c3_Circles.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
