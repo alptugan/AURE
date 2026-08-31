@@ -12,19 +12,6 @@ void ofApp::setup(){
 	showGUI = false;
 	showInfo = false;
 	settingFile = "settings-aure.json";
-	// GUI
-	//ofxGuiSetBitmapFont();
-	//gui.setDefaultTextPadding(6);
-	//gui.setDefaultWidth(300);
-	//gui.setDefaultHeight(20);
-	//ofxAppGui.setup(settingFile);
-	//gui.add(showGui);
-	//gui.add(enableFullScreen);
-	//gui.add(serverAdd);
-	//gui.add(portAdd);
-	//gui.add(saveSettings);
-	
-	//gui.loadFromFile(settingFile);
 	
 	enableFullScreen.addListener(this, &ofApp::enableFullScreenHandler);
 	saveSettings.addListener(this, &ofApp::saveSettingsHandler);
@@ -111,6 +98,16 @@ void ofApp::setup(){
 	float linePoints[2];
 	
 	//ofEnableAntiAliasing();
+	
+	/////////////////////////////////////////////////////////////////
+	// Register OSC parameter routes
+	/////////////////////////////////////////////////////////////////
+	paramRoutes["/par1"]  = [](BaseContent* c) { c->onPar1(); };
+	paramRoutes["/par2"]  = [](BaseContent* c) { c->onPar2(); };
+	paramRoutes["/par3"]  = [](BaseContent* c) { c->onPar3(); };
+	paramRoutes["/par4"]  = [](BaseContent* c) { c->onPar4(); };
+	paramRoutes["/par5"]  = [](BaseContent* c) { c->onPar5(); };
+	paramRoutes["/reset"] = [](BaseContent* c) { c->onReset(); };
 }
 
 
@@ -361,116 +358,63 @@ void ofApp::receiverParser() {
 	
 	// check for waiting messages
 	while(receiver.hasWaitingMessages()){
-		
-		// get the next message
 		ofxOscMessage m;
 		receiver.getNextMessage(m);
 		
-		// unrecognized message: display on the bottom of the screen
-		string msgString;
-		msgString = "Incoming Message -> ";
-		msgString += m.getAddress();
+		string msgString = "Incoming Message -> " + m.getAddress();
 		string addr = m.getAddress();
 		
-		if(addr == "/par1") {
-			if(mContentsManager.getCurrentContent() == 1) {
-				c2->iterationBtnHandler();
-			}else if(mContentsManager.getCurrentContent() == 0) {
-				c1->setSize();
-			}else if(mContentsManager.getCurrentContent() == 2) {
-				c3->onPar1();
-			}
-			
-			msgColors[currentMsgString] = ofColor::green;
-		}else if(addr == "/par2") {
-			if(mContentsManager.getCurrentContent() == 1) {
-				c2->setm1();
-			}else if(mContentsManager.getCurrentContent() == 0) {
-				c1->setParameter2(true);
-			}else if(mContentsManager.getCurrentContent() == 2) {
-				c3->onPar2();
-			}
-			msgColors[currentMsgString] = ofColor::green;
-		}else if(addr == "/par3") {
-			if(mContentsManager.getCurrentContent() == 1) {
-				c2->setm2();
-			}else if(mContentsManager.getCurrentContent() == 0) {
-				c1->setParameter3(true);
-			}else if(mContentsManager.getCurrentContent() == 2) {
-				c3->onPar3();
-			}
-			msgColors[currentMsgString] = ofColor::green;
-		}else if(addr == "/par4") {
-			if(mContentsManager.getCurrentContent() == 1) {
-				c2->setRandomColor();
-			}else if(mContentsManager.getCurrentContent() == 0) {
-				c1->setParameter4();
-			}else if(mContentsManager.getCurrentContent() == 2) {
-				c3->onPar4();
-			}
-			msgColors[currentMsgString] = ofColor::green;
-		}else if(addr == "/par5") {
-			if(mContentsManager.getCurrentContent() == 1) {
-				c2->setRandomRadius();
-			}else if(mContentsManager.getCurrentContent() == 0) {
-				c1->setParameter5();
-			}else if(mContentsManager.getCurrentContent() == 2) {
-				c3->onPar5();
-			}
-			msgColors[currentMsgString] = ofColor::green;
-		}else if(addr == "/reset") {
-			if(mContentsManager.getCurrentContent() == 1) {
-				c2->setRadius(350);
-			}else if(mContentsManager.getCurrentContent() == 0) {
-				
+		// 1. Parameter routes (/par1, /par2, /par3, /par4, /par5, /reset)
+		auto it = paramRoutes.find(addr);
+		if(it != paramRoutes.end()) {
+			BaseContent* current = dynamic_cast<BaseContent*>(mContentsManager.getContent(mContentsManager.getCurrentContent()));
+			if(current) {
+				it->second(current);
 			}
 			msgColors[currentMsgString] = ofColor::green;
 		}
-		else if(addr == "/fx_on") {
-			int randId = int(ofRandom(fxManager.getEffectNum()));
-			fxManager.switchFX(randId);
-			
-			msgColors[currentMsgString] = ofColor::green;
-			
-		}else if(addr == "/fx_off") {
-			fxManager.disableAll();
-			msgColors[currentMsgString] = ofColor::green;
-		}else if(addr == "/w_full_on") {
-			if(!enableFullScreen) {
-				enableFullScreen = true;
-				ofSetFullscreen(enableFullScreen);
-			}
-			msgColors[currentMsgString] = ofColor::green;
-		}else if(addr == "/w_full_off") {
-			if(enableFullScreen) {
-				enableFullScreen = false;
-				ofSetFullscreen(enableFullScreen);
-			}
-			msgColors[currentMsgString] = ofColor::green;
-		}// replace the repeated if/else chain in `ofApp.cpp` with this
-		if (addr.rfind("/scene", 0) == 0) {
-			string numStr = addr.substr(6); // "/scene" length == 6
-			if (!numStr.empty() && std::all_of(numStr.begin(), numStr.end(), ::isdigit)) {
-				int idx = std::stoi(numStr) - 1; // convert "1"->0, "2"->1, ...
-				if (idx >= 0 && idx != mContentsManager.getCurrentContent()) {
+		// 2. Scene routes (/scene1, /scene2, ..., /scene12, etc.)
+		else if(addr.rfind("/scene", 0) == 0) {
+			string numStr = addr.substr(6);
+			if(!numStr.empty() && std::all_of(numStr.begin(), numStr.end(), ::isdigit)) {
+				int idx = std::stoi(numStr) - 1;
+				if(idx >= 0 && idx < mContentsManager.getNumContents() && idx != mContentsManager.getCurrentContent()) {
 					mContentsManager.switchContent(idx);
 				}
 				msgColors[currentMsgString] = ofColor::green;
 			}
 		}
-		else{
+		// 3. System / FX / Window commands
+		else if(addr == "/fx_on") {
+			int randId = int(ofRandom(fxManager.getEffectNum()));
+			fxManager.switchFX(randId);
+			msgColors[currentMsgString] = ofColor::green;
+		}
+		else if(addr == "/fx_off") {
+			fxManager.disableAll();
+			msgColors[currentMsgString] = ofColor::green;
+		}
+		else if(addr == "/w_full_on") {
+			if(!enableFullScreen) {
+				enableFullScreen = true;
+				ofSetFullscreen(enableFullScreen);
+			}
+			msgColors[currentMsgString] = ofColor::green;
+		}
+		else if(addr == "/w_full_off") {
+			if(enableFullScreen) {
+				enableFullScreen = false;
+				ofSetFullscreen(enableFullScreen);
+			}
+			msgColors[currentMsgString] = ofColor::green;
+		}
+		// 4. Unrecognized message
+		else {
 			msgColors[currentMsgString] = ofColor::red;
-			msgString = "Unsupported Message-> ";
-			msgString += m.getAddress();
+			msgString = "Unsupported Message-> " + m.getAddress();
 			
 			for(size_t i = 0; i < m.getNumArgs(); i++){
-				
-				// get the argument type
-				msgString += " : ";
-				msgString += m.getArgTypeName(i);
-				msgString += ":";
-				
-				// display the argument - make sure we get the right type
+				msgString += " : " + m.getArgTypeName(i) + ":";
 				if(m.getArgType(i) == OFXOSC_TYPE_INT32){
 					msgString += ofToString(m.getArgAsInt32(i));
 				}
@@ -485,7 +429,8 @@ void ofApp::receiverParser() {
 				}
 			}
 		}
-		// add to the list of strings to display
+
+		// Add to display list
 		int prevId = (currentMsgString > 0) ? currentMsgString - 1 : NUM_MSG_STRINGS - 1;
 		if(msgColors[prevId] != ofColor::red)
 			msgColors[prevId] = ofColor(0, 255, 0, 100);
@@ -493,12 +438,9 @@ void ofApp::receiverParser() {
 		timers[currentMsgString] = ofGetElapsedTimef() + 2.0f;
 		
 		currentMsgString = (currentMsgString + 1) % NUM_MSG_STRINGS;
-		
-		// clear the next line
 		msgStrings[currentMsgString] = "";
 	}
 }
-
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
 	

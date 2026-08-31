@@ -50,7 +50,6 @@
 		"BDAB00BD-86BF-4D62-B42A-13F0C9EBE2B9" /* ConvolutionPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = "43B97390-3ED0-4B27-BA4E-0BA2222E0582" /* ConvolutionPass.cpp */; };
 		"BDACF6BB-59D2-44C6-9144-DFED5CE62AB4" /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = "6C03BE83-82BF-499D-85AE-5D3EBE5C7B9D" /* IpEndpointName.cpp */; };
 		"BDE3601C-A38F-4014-A89C-054855D4B4B4" /* BleachBypassPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = "32C561BD-58F3-48B7-AB57-546813AE35DE" /* BleachBypassPass.cpp */; };
-		"C275D5D2-B7F0-4DCF-BBFF-89F159335979" /* DofAltPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = "D3793C00-7D6F-4A1F-A644-B36EC4E31A63" /* DofAltPass.cpp */; };
 		"C8119C1F-F65E-457F-9DE8-BB45D0022E1E" /* ofxOscBundle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = "E4106344-B01A-4675-B42C-7653A9570FDC" /* ofxOscBundle.cpp */; };
 		"D2CB15D4-4D95-4A12-873D-C23F2079CC28" /* ofxOscParameterSync.cpp in Sources */ = {isa = PBXBuildFile; fileRef = "27A97622-C0D2-4C89-A85D-823A6876F248" /* ofxOscParameterSync.cpp */; };
 		"D71109C5-6BC5-4326-8009-A85B10132252" /* ZoomBlurPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = "9A52579A-23AC-4C23-89AF-859267B56200" /* ZoomBlurPass.cpp */; };
@@ -174,7 +173,6 @@
 		"95C2E989-4380-4060-8566-340EFAE4DD15" /* ofxDC_Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ofxDC_Particle.h; sourceTree = "<group>"; };
 		"970A4938-DBB1-4CF1-B761-AF78E2D13C09" /* ofxContentsManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxContentsManager.cpp; sourceTree = "<group>"; };
 		"971D182E-8B4D-47D1-8586-502BFCD20F2C" /* ofxColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ofxColorPicker.h; sourceTree = "<group>"; };
-		"976F6153-1DE6-478D-9167-6D4495AFFD89" /* FirePass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FirePass.h; sourceTree = "<group>"; };
 		"978889F6-0E04-46BE-892E-A2AEDC2C3FD3" /* ofxTweenzor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ofxTweenzor.h; sourceTree = "<group>"; };
 		"99848E15-C6F9-4A9D-B740-232CB16C4BB6" /* UdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UdpSocket.h; sourceTree = "<group>"; };
 		"9A52579A-23AC-4C23-89AF-859267B56200" /* ZoomBlurPass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZoomBlurPass.cpp; sourceTree = "<group>"; };
@@ -211,7 +209,6 @@
 		"CADCA192-A7BF-446E-91D7-2A786A23C5D2" /* ofxInputField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxInputField.cpp; sourceTree = "<group>"; };
 		"CBDD2D7F-03E9-4074-B49D-A9FBE74FAEF2" /* FilmGrainLinesPass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FilmGrainLinesPass.cpp; sourceTree = "<group>"; };
 		"D0033249-0F9D-4B6B-ACC1-91C09E13BCC5" /* ofxGui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ofxGui.h; sourceTree = "<group>"; };
-		"D3793C00-7D6F-4A1F-A644-B36EC4E31A63" /* DofAltPass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DofAltPass.cpp; sourceTree = "<group>"; };
 		"D4488140-0E2B-4F68-B2B4-E1E4763AF21E" /* ofxPostProcessingManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxPostProcessingManager.cpp; sourceTree = "<group>"; };
 		"D47C5CB9-2607-444D-891A-AB3E8CFD53B6" /* data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = data; path = bin/data; sourceTree = SOURCE_ROOT; };
 		"D5EEBCC5-E639-43C0-9CFA-8C3A8A52D5A4" /* OscPacketListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OscPacketListener.h; sourceTree = "<group>"; };
@@ -240,12 +237,12 @@
 		"EE45E585-3E35-4C08-9F98-8A50322064C1" /* UdpSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UdpSocket.cpp; sourceTree = "<group>"; };
 		"EE9931EF-C231-45A8-B924-64D6AF584846" /* ofxInputField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ofxInputField.h; sourceTree = "<group>"; };
 		"EFA22488-5B4F-4FF1-94FC-E95DD50A64FB" /* RGBShiftPass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RGBShiftPass.cpp; sourceTree = "<group>"; };
+		F10BB82F304460BF00B611B6 /* BaseContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseContent.h; sourceTree = "<group>"; };
 		"F1454B3C-D447-46BF-94D8-E75BADA97A52" /* ofxPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ofxPanel.h; sourceTree = "<group>"; };
 		F1BFE47D2EF0A45000311FE7 /* c3_Circles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = c3_Circles.h; sourceTree = "<group>"; };
 		"F2AB117F-8141-4DE9-AFD0-CE068F6CC91F" /* TweenSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TweenSelector.h; sourceTree = "<group>"; };
 		"F5415EBD-2C3B-4DB7-9978-F4708BDF617B" /* OscReceivedElements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OscReceivedElements.h; sourceTree = "<group>"; };
 		"F7A6B488-711D-473A-83EA-E48C7909CD72" /* ofxButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxButton.cpp; sourceTree = "<group>"; };
-		"F7B68EB0-FC76-4D69-9944-CF022FE8DB60" /* DofAltPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DofAltPass.h; sourceTree = "<group>"; };
 		"F9093CB6-B604-4933-9C83-5C49601E1650" /* ACESFilmicToneMappingPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ACESFilmicToneMappingPass.h; sourceTree = "<group>"; };
 		"F9E44922-8617-4900-88D9-5A366AF7E6A3" /* ofxOscMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ofxOscMessage.h; sourceTree = "<group>"; };
 		"FF7DA378-BB20-4007-B7CE-69859C183D3D" /* VerticalTiltShifPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VerticalTiltShifPass.h; sourceTree = "<group>"; };
@@ -398,8 +395,6 @@
 				"D7408A3B-DA19-49E5-AB3A-BA8CAF099571" /* ConvolutionPass.h */,
 				"7A09700B-D94C-42E2-A6C4-73D9DB58741A" /* DigitalGlitchPass.h */,
 				"6E972E6A-0D24-4CAA-9D40-86A779E2D90C" /* DitherPass.h */,
-				"D3793C00-7D6F-4A1F-A644-B36EC4E31A63" /* DofAltPass.cpp */,
-				"F7B68EB0-FC76-4D69-9944-CF022FE8DB60" /* DofAltPass.h */,
 				"17238D0C-ADBF-4EFE-94B6-499B967F4603" /* DofPass.cpp */,
 				"11ACA3CF-3676-4975-AA46-BAA6F95E366A" /* DofPass.h */,
 				"8C8530C3-7F95-4490-891C-527E105CE983" /* DotScreenPass.cpp */,
@@ -410,7 +405,6 @@
 				"9AE61189-E4E2-4A67-80FF-88FC428BB0E1" /* FakeSSSPass.h */,
 				"CBDD2D7F-03E9-4074-B49D-A9FBE74FAEF2" /* FilmGrainLinesPass.cpp */,
 				"A3E60DF0-BBB8-4521-9F17-2D00AC037CBF" /* FilmGrainLinesPass.hpp */,
-				"976F6153-1DE6-478D-9167-6D4495AFFD89" /* FirePass.h */,
 				"850C0483-2964-4BAB-8554-F2818181668E" /* FogPass.h */,
 				"B444DC64-3E91-409D-83D1-1FA3322805B8" /* FxaaPass.cpp */,
 				"C3A014BF-F749-4EAA-BDEB-EF82AE233245" /* FxaaPass.h */,
@@ -574,6 +568,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				F10BB82F304460BF00B611B6 /* BaseContent.h */,
 				F1BFE47D2EF0A45000311FE7 /* c3_Circles.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
@@ -731,7 +726,6 @@
 				"B630AF99-2BAF-4CE7-93ED-BFEA9882661E" /* BloomPass.cpp in Sources */,
 				"1ED85A8C-FAD8-4A6A-9C78-E7A02B5214C0" /* ContrastPass.cpp in Sources */,
 				"BDAB00BD-86BF-4D62-B42A-13F0C9EBE2B9" /* ConvolutionPass.cpp in Sources */,
-				"C275D5D2-B7F0-4DCF-BBFF-89F159335979" /* DofAltPass.cpp in Sources */,
 				"9972A0B2-35B6-4D26-9A59-FD1DFC37F2DF" /* DofPass.cpp in Sources */,
 				"A444C363-2054-4048-988D-67E05B06451B" /* DotScreenPass.cpp in Sources */,
 				"FD7FD869-1DAC-4F22-99E3-530BE30844DF" /* EdgePass.cpp in Sources */,

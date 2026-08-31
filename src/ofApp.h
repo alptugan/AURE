@@ -121,4 +121,9 @@ class ofApp : public ofxDC_App{
     
     string fileName;
     float scale, resolution;
+	
+	//--------------------------------------------------------------
+	// Parameter routing map
+	//--------------------------------------------------------------
+	std::unordered_map<std::string, std::function<void(BaseContent*)>> paramRoutes;
 };

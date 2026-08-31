@@ -10,8 +10,10 @@
 #include "ofxContentsManager.h"
 #include "ofxEasing.h"
 #include "globalParameters.h"
+#include "BaseContent.h"
 
-class  c3_Circles : public ofxContentsManager::Content {
+
+class  c3_Circles : public BaseContent {
 private:
 	std::vector<ofxeasing::function> easings{
 		ofxeasing::linear::easeNone,
@@ -42,35 +44,35 @@ public:
 
 	~c3_Circles() {}
 
-	void setup() {
+	void setup() override {
 		// allocate meshes / fbo / load assets here
 	}
 
 	// OSC hooks (map these from ofApp::receiverParser)
-	void onPar1() {
+	void onPar1() override {
 		triggerTimePar1 = ofGetElapsedTimef();
 		intensity = ofRandom(0.0f, 1.0f);
 	}
 
-	void onPar2(bool val = true) {
-		triggerPar2 = val;
+	void onPar2() override {
+		triggerPar2 = true;
 		triggerTimePar2 = ofGetElapsedTimef();
 		baseColor = ofColor(ofRandom(255), ofRandom(255), ofRandom(255));
 	}
 
-	void onPar3() {
+	void onPar3() override {
 		// optional: another trigger/randomize
 	}
 
-	void onPar4() {
+	void onPar4() override {
 		// optional: another trigger/randomize
 	}
 
-	void onPar5() {
+	void onPar5() override {
 		// optional: another trigger/randomize
 	}
 
-	void update() {
+	void update() override {
 		// Use global window dims if needed
 		float ww = static_cast<float>(w);
 		float hh = static_cast<float>(h);
@@ -83,7 +85,7 @@ public:
 		}
 	}
 
-	void draw() {
+	void draw() override {
 		ofPushStyle();
 		ofSetColor(baseColor);
 
